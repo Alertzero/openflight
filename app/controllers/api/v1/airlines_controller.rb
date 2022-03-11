@@ -2,6 +2,8 @@ module Api
     module V1
       class AirlinesController < ApplicationController
         
+        protect_from_forgery with: :null_session
+
         def index
           airlines = Airline.all
 
@@ -51,7 +53,7 @@ module Api
         end
 
         def options
-          @options [] = { include: %i[reviews]}
+          @options ||= { include: %i[reviews] }
         end
       end
     end
