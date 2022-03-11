@@ -3,7 +3,7 @@ module Api
       class AirlinesController < ApplicationController
         
         def index
-          airline - Airline.all
+          airlines = Airline.all
 
           render json: AirlineSerializer.new(airlines, options).serialized_json
         end
